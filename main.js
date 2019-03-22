@@ -4,7 +4,18 @@ const deck = [];
 let player1Card = null;
 let player2Card = null;
 
-function buildDeck() {
+function buildDeck(arr1,arr2) {
+  for(let i = 0; i < arr1.length; i++){
+    for(let j = 0; j < arr2.length; j++){
+      let card = {
+        num: arr1[i],
+        suit: arr2[j],
+        value: arr1[i]
+      }
+      deck.push(card);
+    }
+  }
+  console.log(deck);
 }
 
 function dealCardsToPlayers() {
@@ -29,5 +40,5 @@ function playGame() {
   returnCardsToDeck();
 }
 
-buildDeck();
+buildDeck(values, suits);
 playGame();

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Joovay's High Card Game</title>
+</head>
+<body>
+    <div class="wrapper">
+        <h1 class="title">High Card Game</h1>
+        <div class="cards">
+            <div class="card" id="player1">
+                <div class="cardtext">
+                    <span class="suittext" id="player1suit">&spades;</span><br>
+                    <span class="valuetext">Ace</span><br>
+                    <span class="playertext" id="player1name">Player 1</span>
+                </div>
+            </div>
+            <div class="card" id="player2">
+                <div class="cardtext">
+                    <span class="suittext" id="player2suit">&diams;</span><br>
+                    <span class="valuetext">8</span><br>
+                    <span class="playertext" id="player2name">Player 2</span>
+                </div>
+            </div>
+        </div>
+        <button id="playButton" onclick="playGame()" >Click Here to play!</button>
+
+        <div class="scoresheading">Scores</div>
+        <div class="scores">
+            <div><span class="player1name" id="player1namescores">Player 1</span><br><span>0</span></div>
+            <div><span class="player2name" id="player2namescores" >Player 2</span><br><span>0</span></div>
+        </div>
+
+
+    </div>
+
+<script src="main.js"></script>
+</body>
+</html>
+
+<!-- &clubs; &diams; &spades; &hearts; -->

@@ -15,22 +15,35 @@ function buildDeck(arr1,arr2) {
       deck.push(card);
     }
   }
-  console.log(deck);
 }
 
 function dealCardsToPlayers() {
+  player1Card = deck.splice(Math.floor(Math.random() * 52),1);
+  player2Card = deck.splice(Math.floor(Math.random() * 52),1);
 }
 
 function announceCards() {
+  console.log(`Player 1 is showing the ${player1Card[0].num} of ${player1Card[0].suit}`);
+  console.log(`Player 2 is showing the ${player2Card[0].num} of ${player2Card[0].suit}`);
 }
 
 function cardToRank(card) {
+  card[0].num === "Jack" ? card[0].num = 11 : 
+  card[0].num === "Queen" ? card[0].num = 12 :
+  card[0].num === "King" ? card[0].num = 13 :
+  card[0].num === "Ace" ? card[0].num = 14 :
+  card[0].num;
 }
 
 function announceWinner() {
+  player1Card[0].num === player2Card[0].num ? console.log(`Its a tie`) : 
+  player1Card[0].num > player2Card[0].num ? console.log(`Player 1 Wins`) : 
+  console.log(`Player 2 wins`);
 }
 
 function returnCardsToDeck() {
+  deck.push(player1Card);
+  deck.push(player2Card);
 }
 
 function playGame() {
@@ -41,4 +54,10 @@ function playGame() {
 }
 
 buildDeck(values, suits);
-playGame();
+dealCardsToPlayers()
+announceCards();
+cardToRank(player1Card);
+cardToRank(player2Card);
+announceWinner();
+returnCardsToDeck();
+console.log(deck.length);

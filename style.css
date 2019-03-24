@@ -23,7 +23,7 @@ body {
 
 .title {
     display: inline-block;
-    margin: 20px;
+    margin-top: 30px;
     padding: 20px;
 }
 
@@ -86,4 +86,10 @@ body {
 
 #player2 {
     color: red;
+}
+
+#winner {
+    display: none;
+    margin: 0;
+    padding: 0;
 }

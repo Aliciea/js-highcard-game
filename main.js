@@ -9,6 +9,7 @@ let player1Score = 0;
 let player2Score = 0;
 let player1 = ``;
 let player2 = ``;
+let temp = null;
 
 function buildDeck(arr1,arr2,arr3,arr4) {
   for(let i = 0; i < arr1.length; i++){
@@ -26,35 +27,38 @@ function buildDeck(arr1,arr2,arr3,arr4) {
 }
 
 function dealCardsToPlayers() {
-  player1Card = deck[deck.splice(Math.floor(Math.random() * deck.length),1)];
-  player2Card = deck[deck.splice(Math.floor(Math.random() * deck.length),1)];
+  temp = deck.splice(Math.floor(Math.random() * deck.length),1);
+  player1Card = temp[0];
+
+  temp = deck.splice(Math.floor(Math.random() * deck.length),1);
+  player2Card = temp[0];
 }
 
 function announceCards() {
   //console.log(`${player1} is showing the ${player1Card[0].value} of ${player1Card[0].suit}.`);
-  document.getElementById(`player1Suit`).innerText = player1Card[0].suitChar;
-  document.getElementById(`player1`).style.color = player1Card[0].color;
-  document.getElementById(`value1`).innerText = player1Card[0].num;
+  document.getElementById(`player1Suit`).innerText = player1Card.suitChar;
+  document.getElementById(`player1`).style.color = player1Card.color;
+  document.getElementById(`value1`).innerText = player1Card.num;
 
   //console.log(`${player2} is showing the ${player2Card[0].value} of ${player2Card[0].suit}.`);
-  document.getElementById(`player2Suit`).innerText = player2Card[0].suitChar;
-  document.getElementById(`player2`).style.color = player2Card[0].color;
-  document.getElementById(`value2`).innerText = player2Card[0].num;
+  document.getElementById(`player2Suit`).innerText = player2Card.suitChar;
+  document.getElementById(`player2`).style.color = player2Card.color;
+  document.getElementById(`value2`).innerText = player2Card.num;
 }
 
 function cardToRank(card) {
-  card[0].num === "Jack" ? card[0].num = 11 : 
-  card[0].num === "Queen" ? card[0].num = 12 :
-  card[0].num === "King" ? card[0].num = 13 :
-  card[0].num === "Ace" ? card[0].num = 14 :
-  card[0].num;
+  card.num === "Jack" ? card.num = 11 : 
+  card.num === "Queen" ? card.num = 12 :
+  card.num === "King" ? card.num = 13 :
+  card.num === "Ace" ? card.num = 14 :
+  card.num;
 }
 
 function announceWinner() {
-  if (player1Card[0].num === player2Card[0].num) {
+  if (player1Card.num === player2Card.num) {
     document.getElementById(`winner`).innerText = `It's a Tie!`;
     document.getElementById(`winner`).style.display = `inline-block`;
-  } else if (player1Card[0].num > player2Card[0].num) {
+  } else if (player1Card.num > player2Card.num) {
     player1Score++;
     document.getElementById(`player1score`).innerText = player1Score;
     document.getElementById(`winner`).innerText = `${player1} Wins!`;

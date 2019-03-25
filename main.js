@@ -9,7 +9,6 @@ let player1Score = 0;
 let player2Score = 0;
 let player1 = ``;
 let player2 = ``;
-let temp = null;
 
 function buildDeck(arr1,arr2,arr3,arr4) {
   for(let i = 0; i < arr1.length; i++){
@@ -27,20 +26,15 @@ function buildDeck(arr1,arr2,arr3,arr4) {
 }
 
 function dealCardsToPlayers() {
-  temp = deck.splice(Math.floor(Math.random() * deck.length),1);
-  player1Card = temp[0];
-
-  temp = deck.splice(Math.floor(Math.random() * deck.length),1);
-  player2Card = temp[0];
+  player1Card = deck.splice(Math.floor(Math.random() * deck.length),1)[0];
+  player2Card = deck.splice(Math.floor(Math.random() * deck.length),1)[0];
 }
 
 function announceCards() {
-  //console.log(`${player1} is showing the ${player1Card[0].value} of ${player1Card[0].suit}.`);
   document.getElementById(`player1Suit`).innerText = player1Card.suitChar;
   document.getElementById(`player1`).style.color = player1Card.color;
   document.getElementById(`value1`).innerText = player1Card.num;
 
-  //console.log(`${player2} is showing the ${player2Card[0].value} of ${player2Card[0].suit}.`);
   document.getElementById(`player2Suit`).innerText = player2Card.suitChar;
   document.getElementById(`player2`).style.color = player2Card.color;
   document.getElementById(`value2`).innerText = player2Card.num;
@@ -72,8 +66,7 @@ function announceWinner() {
 }
 
 function returnCardsToDeck() {
-  deck.push(player1Card);
-  deck.push(player2Card);
+  deck.push(player1Card, player2Card);
 }
 
 function playGame() {
